@@ -22,7 +22,7 @@ This repository contains trading scripts that outputs buy and sell signals for S
 
 ## RSI Strategy Features
 - Calculate RSI for S&P 500 stocks (any stock can be included, but S&P500 is used by default here)
-- Generate buy/sell signals based on RSI values - default is 51/71
+- Generate buy/sell signals based on RSI values comparing the last two close prices and determining if they have crossed a buy/sell threshold - default is 51/71
 - Calculate performance metrics (Sharpe and Sortino ratios) to accompany signals
 - Save results to an Excel file with separate sheets for buy and sell signals
 - Send an email report with the results and an Excel file attachment (type of output will vary depending on which script is used - see #current-versions)
