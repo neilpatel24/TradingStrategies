@@ -33,10 +33,10 @@ def calculate_sortino_ratio(data):
     sortino_ratio = returns.mean() / downside_returns.std() * np.sqrt(252)  # Annualized Sortino ratio
     return sortino_ratio
 
-# Email sending function
+# Email sending function - Ensure to add your own email address and app password here to enable the script to authenticate and send an email
 def send_email(to_address, subject, body, attachment_path):
-    from_address = 'neilpatel247@gmail.com'
-    password = 'fnxn idpz srlf velh'
+    from_address = '[SENDER EMAIL ADDRESS]'
+    password = '[EMAIL APP PASSWORD]'
     
     # Setup the MIME
     msg = MIMEMultipart()
@@ -72,7 +72,7 @@ def send_email(to_address, subject, body, attachment_path):
     server.sendmail(from_address, to_address, text)
     server.quit()
 
-# Get the list of S&P 500 stocks
+# Get the list of stocks you want to include in the analysis. The below provides a static list but you can analyse the full S&P 500 by removing the array and inserting [stock['symbol'] for stock in sp500_symbols]
 stock_data = PyTickerSymbols()
 sp500_symbols = stock_data.get_stocks_by_index('S&P 500')
 symbols = ['TSLA', 'NVDA', 'AAPL', 'MSFT', 'MSTR', 'AMZN', 'META', 'INTC']
@@ -88,7 +88,8 @@ for symbol in symbols:
     if len(data['RSI']) > 1:
         rsi_yesterday = data['RSI'].iloc[-2]
         rsi_today = data['RSI'].iloc[-1]
-        
+
+# Now attach a buy or sell signal depending on the RSI calculations. You can adjust the thresholds to your preference.
         if rsi_yesterday < 51 and rsi_today > 51:
             buy_signal_results = pd.concat([buy_signal_results, pd.DataFrame({'Ticker': [symbol], 'RSI_Yesterday': [rsi_yesterday], 'RSI_Today': [rsi_today]})], ignore_index=True)
         
@@ -138,15 +139,18 @@ performance_df = pd.DataFrame(performance_data)
 buy_signal_results = pd.merge(buy_signal_results, performance_df, on='Ticker', how='left')
 sell_signal_results = pd.merge(sell_signal_results, performance_df, on='Ticker', how='left')
 
+# Get the current date and time for the timestamp 
+current_datetime = datetime.now().strftime('%Y%m%d_%H%M%S')
+
 # Save the results to an Excel file with separate sheets
-filename = 'rsi_signals_adv3.xlsx'
+filename = f'rsi_signals_{current_datetime}.xlsx'
 with pd.ExcelWriter(filename) as writer:
     buy_signal_results.to_excel(writer, sheet_name='Buy_Signals', index=False)
     sell_signal_results.to_excel(writer, sheet_name='Sell_Signals', index=False)
 
 # Read the Excel file
-df_buy = pd.read_excel('rsi_signals_adv3.xlsx', sheet_name='Buy_Signals')
-df_sell = pd.read_excel('rsi_signals_adv3.xlsx', sheet_name='Sell_Signals')
+df_buy = pd.read_excel(filename, sheet_name='Buy_Signals')
+df_sell = pd.read_excel(filename, sheet_name='Sell_Signals')
 
 # Calculate the number of rows
 num_buy_signals = len(df_buy)
@@ -154,7 +158,7 @@ num_sell_signals = len(df_sell)
 
 # Send the email with the attachment
 send_email(
-    to_address='neil_patel24@hotmail.co.uk',
+    to_address='[enter receiving email address]',
     subject='Daily RSI Signals Report',
     body=f"""\
 Hi Benchod,
@@ -167,7 +171,7 @@ Here are the latest signals from the RSI5171 strategy:
 Best regards,
 Neil
 """,
-    attachment_path='rsi_signals_adv3.xlsx'
+    attachment_path=filename
 )
 
-print("Data saved to rsi_signals_adv3.xlsx and email sent")
+print(f"Data saved to spreadsheet and email sent, last run on {current_datetime}")
