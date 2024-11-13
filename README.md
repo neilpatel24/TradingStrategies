@@ -19,6 +19,7 @@ This repository contains trading scripts that outputs buy and sell signals for S
 - `email` library
 - `datetime` library
 - `os` library
+- `openpyxl` library
 - manually update script to include your email address and app password to send the email from
 - manually update script to include the email address the output needs to be sent to
 
