@@ -18,6 +18,7 @@ This repository contains trading scripts that outputs buy and sell signals for S
 - `smtplib` library
 - `email` library
 - `datetime` library
+- `os` library
 - manually update script to include your email address and app password to send the email from
 - manually update script to include the email address the output needs to be sent to
 
@@ -31,6 +32,6 @@ This repository contains trading scripts that outputs buy and sell signals for S
 ### Current Versions
 1. RSISP500EmailDailyFile.py - this script allows you to run a one-time analysis and email the output in individual Excel files with a timestamp for each time it runs
       - Sample output: rsi_signals_20241113_172401.xlsx
-2. [WIP] RSISP500EmailAppendedData.py - this script will append the additional buy and sell signals to the bottom of the previous Excel file to allow analysis of signals over time
-
+2. RSISP500EmailAppendedData.py - this script will append the additional buy and sell signals to the bottom of the previous Excel file to allow analysis of signals over time
+      - Sample output: rsi_signals_master.xlsx
 3. [WIP] RSISP500EmailMASTER.py - this will append the raw data and update dashboard/views in another read-only tab. 
