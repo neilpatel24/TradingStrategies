@@ -1,12 +1,13 @@
 # Trading Scripts
 
-This repository contains trading scripts that outputs buy and sell signals for S&P 500 stocks and sends an email report with the results. The script fetches and analyzes stock data, calculates performance metrics, and saves the results to an Excel file.
-
 ## Table of Contents
 - [Introduction](#introduction)
 - [Requirements](#requirements)
 - [RSI Strategy Features](#rsi-strategy-features)
 - [Current Versions](#current-versions)
+
+## Introduction
+This repository contains trading scripts that outputs buy and sell signals for S&P 500 stocks and sends an email report with the results. The script fetches and analyzes stock data, calculates performance metrics, and saves the results to an Excel file.
 
 ## Requirements
 - Python 3.6+
@@ -27,7 +28,7 @@ This repository contains trading scripts that outputs buy and sell signals for S
 - Save results to an Excel file with separate sheets for buy and sell signals
 - Send an email report with the results and an Excel file attachment (type of output will vary depending on which script is used - see #current-versions)
 
-## Current Versions
+### Current Versions
 1. RSISP500EmailDailyFile.py - this script allows you to run a one-time analysis and email the output in individual Excel files with a timestamp for each time it runs
       - Sample output: RSISP500EmailDailyFile.py
 2. [WIP] RSISP500EmailAppendedData.py - this script will append the additional buy and sell signals to the bottom of the previous Excel file to allow analysis of signals over time
