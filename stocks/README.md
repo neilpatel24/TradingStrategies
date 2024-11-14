@@ -1,4 +1,4 @@
-# Trading Scripts
+# S&P 500 Trading Scripts
 
 ## Table of Contents
 - [Introduction](#introduction)
