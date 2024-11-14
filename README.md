@@ -25,12 +25,13 @@ This repository contains python trading scripts that outputs buy and sell signal
 - manually update script to include the email address the output needs to be sent to
 
 ## Backtesting
-- Scripts will enable you to backtest different trading strategies.
-      - RSI Backtest, provides a simple backtest for an RSI strategy with customisable parameters:
-        1. Buy/sell thresholds
-        2. Buy position hold period
-        3. Outputs simple dataframe for each Asset showing returns over 1m, 3m, 6m, 1y, YTD (others than be added).
-        4. To be added: Summary metrics, overall portfolio performance
+Scripts will enable you to backtest different trading strategies.
+
+### RSI Backtest - provides a simple backtest for an RSI strategy with customisable parameters:
+- Buy/sell thresholds
+- Buy position hold period
+- Outputs simple dataframe for each Asset showing returns over 1m, 3m, 6m, 1y, YTD (others than be added).
+- To be added: Summary metrics, overall portfolio performance
 
 ## RSI Strategy Features
 - Calculate RSI for S&P 500 stocks (any stock can be included, but S&P500 is used by default here)
