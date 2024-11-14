@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Requirements](#requirements)
-- [Backtesting] (#backtesting) 
+- [Backtesting](#backtesting) 
 - [RSI Strategy Features](#rsi-strategy-features)
 - [Current Versions](#current-versions)
 
