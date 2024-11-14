@@ -1,4 +1,4 @@
-# EMA Backtesting
+# Backtesting
 The `EMA-Crypto-Backtest.py` file is a Python script used for backtesting a cryptocurrency trading strategy based on Exponential Moving Averages (EMA). Here are the main components:
 
 - The script imports necessary libraries such as `pandas`, `matplotlib.pyplot`, `binance.client`, and `numpy`.
