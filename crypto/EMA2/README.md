@@ -157,6 +157,28 @@ The following parameters can be customized:
    ```
 5. Monitor logs and email alerts for trade execution details.
 
+## **7. How the Trading Bot Works (Step-by-Step)**
+
+User Input & Setup
+1. The user selects trading pairs (e.g., BTC/USDT) and configures bot settings such as EMA lengths, trade size, and risk tolerance.
+2. API keys are provided (read and trade permissions only, no withdrawals).
+
+Fetching Market Data
+1. The bot connects to the Binance API to retrieve live price data.
+2. It calculates two EMAs (e.g., a short-term 9-period EMA and a longer-term 21-period EMA).
+
+Signal Generation
+1. A buy signal is triggered when the short EMA crosses above the long EMA (bullish crossover).
+2. A sell signal is triggered when the short EMA crosses below the long EMA (bearish crossover).
+
+Trade Execution
+1. The bot places market orders setting quantity to the full balance held (by checking spot balance in Binance).
+2. It accounts for fees to ensure trades can execute regardless of adverse price movements
+
+Trade Logging & Notifications
+1. The bot continuously runs, monitoring EMAs and price movements.
+2. Users receive email notifications when trades are placed.
+
 ---
 
 ## **7. Conclusion**
